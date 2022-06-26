@@ -11,8 +11,19 @@ public class ProductService
     private static string db_password = "Pa55w.rdPa55w.rd";
     private static string db_database = "appdb";
 
+    private readonly IConfiguration _configuration;
+
+    public ProductService(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
+
     private SqlConnection GetConnection()
     {
+
+        // Utilizar este codigo para ConnectionString:
+        return new SqlConnection(_configuration.GetConnectionString("SQLConnection"));
+
         var _builder = new SqlConnectionStringBuilder();
         _builder.DataSource = db_source;
         _builder.UserID = db_user; 
