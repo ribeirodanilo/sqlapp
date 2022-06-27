@@ -41,7 +41,11 @@ public class ProductService
         //string connectionString = "Server=20.243.68.245; Port=3306; Database=appdb; Uid=root; Pwd=Pa55w.rdPa55w.rd; SslMode=Preferred;";
 
         // utilizar este string como Container Group
-        string connectionString = "Server=localhost; Port=3306; Database=appdb; Uid=root; Pwd=Pa55w.rdPa55w.rd; SslMode=Preferred;";
+        //string connectionString = "Server=localhost; Port=3306; Database=appdb; Uid=root; Pwd=Pa55w.rdPa55w.rd; SslMode=Preferred;";
+
+        // Utilizar este string como Kubernets (onde mysql eh o nome da instancia kubernets para o db)
+        string connectionString = "Server=mysql; Port=3306; Database=appdb; Uid=root; Pwd=Pa55w.rdPa55w.rd; SslMode=Preferred;";
+
         return new MySqlConnection(connectionString);
     }
 
